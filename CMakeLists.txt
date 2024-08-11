@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.28)
+project(adt_linked_lists CXX)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wextra -pedantic")
+add_subdirectory(include)
+add_subdirectory(src)
+add_executable(ADTTest src/main.cpp)
