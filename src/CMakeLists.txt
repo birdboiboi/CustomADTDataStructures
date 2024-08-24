@@ -1,1 +1,1 @@
-include_directories(${MyProject_SOURCE_DIR}/include)
+include_directories(${adt_linked_lists_SOURCE_DIR}/include)

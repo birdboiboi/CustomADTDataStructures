@@ -33,7 +33,7 @@ class LinkedList{
         }
 
         T get(const int& idx){
-            if(this->size>0 && idx <= this->size){
+            if(this->size>0 && idx < this->size){
                 node<T> *tempHead = this->head;
                 tempHead= tempHead->next;
 
@@ -56,7 +56,6 @@ class LinkedList{
                 tail->next = new node<T>();
                 tail = tail->next;
                 tail->value = value;
-
                 this->size++;
             }
         }
@@ -64,7 +63,7 @@ class LinkedList{
         void remove(const int &value){
              if(this->size>0){
                 node<T> *tempHead = this->head;
-                for (int i = 0; i <= this->size;i++){
+                for (int i = 0; i < this->size;i++){
                     if(tempHead->next->value == value){
                         DeleteNext(tempHead);
                         tempHead=NULL;
@@ -73,6 +72,7 @@ class LinkedList{
                     tempHead= tempHead->next;
                 }
                 delete tempHead;
+                
             }
 
         }
@@ -92,9 +92,22 @@ class LinkedList{
             }
         }
 
-        void replace(){
-
+        void replace(const int &idx, const T &value){
+            if(this->size>0 && value <= this->size){
+                node<T> *tempHead = this->head->next;
+                for (int i = 0; i <= idx;i++){
+                    if(i == idx){
+                        tempHead->value = value;
+                        tempHead=NULL;
+                        break;
+                    }
+                    tempHead= tempHead->next;
+                }
+                delete tempHead;
+            }    
         }
+
+        
 
         int length(){
             return this->size;
